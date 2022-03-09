@@ -1,13 +1,18 @@
 package es.ulpgc.eite.cleancode.helloworld.app;
 
+import es.ulpgc.eite.cleancode.helloworld.bye.ByeState;
 import es.ulpgc.eite.cleancode.helloworld.hello.HelloState;
 
 public class AppMediator {
 
   private HelloState helloState;
+  //Crear estado para bye
+  private ByeState byeState;
 
   private HelloToByeState helloToByeState;
   private ByeToHelloState byeToHelloState;
+  //Comentado hasta correcta implementación
+  //private NextToByeState nextToByeState;
 
   private static AppMediator INSTANCE;
 
@@ -27,9 +32,8 @@ public class AppMediator {
     return INSTANCE;
   }
 
-  public HelloState getHelloState() {
-    return helloState;
-  }
+  public HelloState getHelloState() {return helloState;}
+  public ByeState getByeState() {return byeState;}
 
   public HelloToByeState getHelloToByeState() {
     HelloToByeState state = helloToByeState;
