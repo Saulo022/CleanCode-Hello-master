@@ -43,12 +43,15 @@ public class ByeActivity
         // do the setup
         ByeScreen.configure(this);
 
+        /*
         if (savedInstanceState == null) {
             presenter.onStart();
 
         } else {
             presenter.onRestart();
         }
+        */
+
     }
 
     private String getGoHelloButtonLabel() {
@@ -64,7 +67,7 @@ public class ByeActivity
         super.onResume();
 
         // load the data
-        presenter.onResume();
+        presenter.onResumeCalled();
     }
 
 
@@ -77,44 +80,19 @@ public class ByeActivity
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        presenter.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        presenter.onDestroy();
-    }
-
-    @Override
-    public void onDataUpdated(ByeViewModel viewModel) {
-        //Log.e(TAG, "onDataUpdated()");
-
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
-        //byeMessage.setText(viewModel.byeMessage);
-    }
-
-
-    @Override
     public void navigateToNextScreen() {
         Intent intent = new Intent(this, ByeActivity.class);
         startActivity(intent);
     }
 
     @Override
+    public void finishView() {
+        finish();
+    }
+
+    @Override
     public void injectPresenter(ByeContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
 }
