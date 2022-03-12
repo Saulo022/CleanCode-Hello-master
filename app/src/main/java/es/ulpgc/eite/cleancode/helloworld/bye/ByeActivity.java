@@ -2,6 +2,8 @@ package es.ulpgc.eite.cleancode.helloworld.bye;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +18,27 @@ public class ByeActivity
 
     private ByeContract.Presenter presenter;
 
+    //Creamoos las variables de la pantalla Bye
+    Button sayByeButton, goHelloButton;
+    TextView byeMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bye);
-        getSupportActionBar().setTitle(R.string.app_name);
+        //Cambiamos el nombre de la pantalla
+        getSupportActionBar().setTitle(R.string.bye_screen_title);
 
+        sayByeButton = findViewById(R.id.sayByeButton);
+        goHelloButton = findViewById(R.id.goHelloButton);
+        byeMessage = findViewById(R.id.byeMessage);
+
+        sayByeButton.setOnClickListener(v -> presenter.sayByeButtonClicked());
+
+        goHelloButton.setOnClickListener(v -> presenter.goHelloButtonClicked());
+
+        sayByeButton.setText(getSayByeButtonLabel());
+        goHelloButton.setText(getGoHelloButtonLabel());
 
         // do the setup
         ByeScreen.configure(this);
@@ -34,12 +51,29 @@ public class ByeActivity
         }
     }
 
+    private String getGoHelloButtonLabel() {
+        return "Go Hello";
+    }
+
+    private String getSayByeButtonLabel() {
+        return "Say Bye";
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
 
         // load the data
         presenter.onResume();
+    }
+
+
+    //Creacion de metodo displayByeData siguiendo modelo del HelloActivity
+    @Override
+    public void displayByeData(ByeViewModel viewModel){
+        Log.e(TAG, "displayByeData");
+
+        byeMessage.setText(viewModel.byeMessage);
     }
 
     @Override

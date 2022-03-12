@@ -4,17 +4,22 @@ public class ByeModel implements ByeContract.Model {
 
     public static String TAG = ByeModel.class.getSimpleName();
 
-    private String data;
+    //Cambiamos data por message2 y creamos metodo getByeMessage como en HelloModel
+    private String message2;
 
-    public ByeModel(String data) {
-        this.data = data;
-    }
+    public ByeModel(String message2) { this.message2 = message2; }
+
+    @Override
+    public String getByeMessage() { return message2;}
+
+
 
     @Override
     public String getStoredData() {
         // Log.e(TAG, "getStoredData()");
-        return data;
+        return message2;
     }
+
 
     @Override
     public void onRestartScreen(String data) {

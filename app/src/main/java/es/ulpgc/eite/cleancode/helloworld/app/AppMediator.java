@@ -11,6 +11,7 @@ public class AppMediator {
 
   private HelloToByeState helloToByeState;
   private ByeToHelloState byeToHelloState;
+
   //Comentado hasta correcta implementación
   //private NextToByeState nextToByeState;
 

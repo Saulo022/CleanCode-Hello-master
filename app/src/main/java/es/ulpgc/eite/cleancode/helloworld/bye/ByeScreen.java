@@ -14,12 +14,13 @@ public class ByeScreen {
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
 
-        String data = context.get().getString(R.string.app_name);
+        //Cambiamis variable data por message2
+        String message2 = context.get().getString(R.string.app_name);
 
         AppMediator mediator = AppMediator.getInstance();
 
         ByeContract.Presenter presenter = new ByePresenter(mediator);
-        ByeContract.Model model = new ByeModel(data);
+        ByeContract.Model model = new ByeModel(message2);
         presenter.injectModel(model);
         presenter.injectView(new WeakReference<>(view));
 

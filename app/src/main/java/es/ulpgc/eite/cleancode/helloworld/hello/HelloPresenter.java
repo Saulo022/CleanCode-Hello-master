@@ -1,10 +1,13 @@
 package es.ulpgc.eite.cleancode.helloworld.hello;
 
+import android.content.Intent;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.helloworld.app.AppMediator;
 import es.ulpgc.eite.cleancode.helloworld.app.ByeToHelloState;
 import es.ulpgc.eite.cleancode.helloworld.app.HelloToByeState;
+import es.ulpgc.eite.cleancode.helloworld.bye.ByeActivity;
 
 public class HelloPresenter implements HelloContract.Presenter {
 
@@ -62,7 +65,7 @@ public class HelloPresenter implements HelloContract.Presenter {
 
     HelloToByeState newState = new HelloToByeState(state.helloMessage);
     passDataToByeScreen(newState);
-    navigateToByeScreen();
+    //navigateToByeScreen();
   }
 
   private ByeToHelloState getDataFromByeScreen() {
