@@ -10,9 +10,8 @@ public interface ByeContract {
         //Creacion de metodo displayByeData siguiendo modelo del HelloActivity
         void displayByeData(ByeViewModel viewModel);
 
-        void onDataUpdated(ByeViewModel viewModel);
 
-        void navigateToNextScreen();
+        //void navigateToNextScreen();
 
         void finishView();
     }

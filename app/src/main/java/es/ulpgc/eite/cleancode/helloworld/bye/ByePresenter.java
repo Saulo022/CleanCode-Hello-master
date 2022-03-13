@@ -39,6 +39,7 @@ public class ByePresenter implements ByeContract.Presenter {
         //view.get().onDataUpdated(state);
     }
 
+
     //Creacion de metodos siguiendo el estilo de hello
 
     private void startByeMessageAsyncTask(){

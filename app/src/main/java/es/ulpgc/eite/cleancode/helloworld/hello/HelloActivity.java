@@ -68,7 +68,13 @@ public class HelloActivity
     // deal with the data
     helloMessage.setText(viewModel.helloMessage);
   }
-
+  @Override
+  public void navigateToByeScreen() {
+    //TODO: no implemented
+    Intent intent = new Intent(this, ByeActivity.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
+  }
 
   private String getGoByeButtonLabel() {
     return getResources().getString(R.string.go_bye_button_label);

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.helloworld.R;
-import es.ulpgc.eite.cleancode.helloworld.hello.HelloActivity;
+//import es.ulpgc.eite.cleancode.helloworld.hello.HelloActivity;
 
 public class ByeActivity
         extends AppCompatActivity implements ByeContract.View {
@@ -54,14 +54,6 @@ public class ByeActivity
 
     }
 
-    private String getGoHelloButtonLabel() {
-        return "Go Hello";
-    }
-
-    private String getSayByeButtonLabel() {
-        return "Say Bye";
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -69,7 +61,6 @@ public class ByeActivity
         // load the data
         presenter.onResumeCalled();
     }
-
 
     //Creacion de metodo displayByeData siguiendo modelo del HelloActivity
     @Override
@@ -79,11 +70,20 @@ public class ByeActivity
         byeMessage.setText(viewModel.byeMessage);
     }
 
+    private String getGoHelloButtonLabel() {
+        return getResources().getString(R.string.go_hello_button_label);
+    }
+
+    private String getSayByeButtonLabel() {
+        return getResources().getString(R.string.say_bye_button_label);
+    }
+
+    /*
     @Override
     public void navigateToNextScreen() {
-        Intent intent = new Intent(this, ByeActivity.class);
+        Intent intent = new Intent(this, HelloActivity.class);
         startActivity(intent);
-    }
+    }*/
 
     @Override
     public void finishView() {
@@ -94,5 +94,4 @@ public class ByeActivity
     public void injectPresenter(ByeContract.Presenter presenter) {
         this.presenter = presenter;
     }
-
 }
